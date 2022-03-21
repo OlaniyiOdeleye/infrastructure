@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dev-rabbitmq
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:OlaniyiOdeleye/infrastructure.git
+    targetRevision: HEAD
+    path: gitops/dev/rabbitmq
+  destination:
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

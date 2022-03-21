@@ -1,0 +1,25 @@
+<< From /charts/argocd >>
+THIS DIRECTORY & FILES ASSUME YOU ALREADY HAVE A K8S CLUSTER RUNNING 
+AND ITS SPECIFIC TO INSTALLING ARGOCD IN ANY CLUSTER 
+
+NOTE: YOU CAN ALSO BOOSTRAP ARGOCD INSTALLATION USING TERRAFORM DURING CLUSTER PROVISIONING
+
+1.  Create the namespace
+        $:~kubectl create namespace argocd
+2.  Install argocd in the cluster
+        $:~kubectl apply -n argocd -f installArgo.yaml
+3.  Forward Port
+        $:~kubectl port-forward svc/argocd-server -n argocd 8189:443
+4.  Access argoCD on http://localhost:8189  & bypass https security  in browser
+5.  Get the secret -- Open another bash session
+        $:~kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+            --will output a secret such as 'ZpsvHcccccXnq888S'
+6. login with admin and that secret as password in http://localhost:8189
+<<setup on ArgoCD>>
+7.  Setup to use the gitops directory using button "CONNECT REPO USING HTTPS" - Test connection..
+8.  Connect the app using "+ NEW APP " button
+            - set name to 'argocd' (all Lowercase)
+            - use defaults including the connection used in point 7/dev/argocd above
+            - set directory to /dev/argocd
+9.  When you see the argocd app you can synchronize and will have all the setups as in /dev/argocd/kustomization.yaml
+10.  Once setup you can test any of the yamls / charts in the repo on the cluster.
