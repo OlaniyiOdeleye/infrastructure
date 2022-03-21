@@ -7,4 +7,4 @@ images:
   newTag: latest
 resources:
 - cluster-operator.yml
-- ./niyez-dev-rabbitmq/kustomization.yml
+# - ./niyez-dev-rabbitmq/kustomization.yml
