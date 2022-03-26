@@ -1,0 +1,5 @@
+resources:
+  - baremetal-cluster.yaml
+  - cloud-cluster.yaml
+
+

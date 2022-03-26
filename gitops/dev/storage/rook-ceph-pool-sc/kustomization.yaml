@@ -1,0 +1,3 @@
+resources:
+  - block-storage-manifests
+  - object-storage-manifests

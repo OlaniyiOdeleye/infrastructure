@@ -1,0 +1,4 @@
+resources:
+  - ceph-object-store.yaml
+  - ceph-bucket-storageclass.yaml
+  - object-bucket-claim.yaml

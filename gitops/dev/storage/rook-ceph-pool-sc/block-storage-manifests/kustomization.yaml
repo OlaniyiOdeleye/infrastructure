@@ -1,0 +1,3 @@
+resources:
+  - ceph-blockpool.yaml
+  - ceph-block-storageclass.yaml

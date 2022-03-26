@@ -1,18 +1,23 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd-applications
+  name: rook-ceph-operator
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: git@github.com:OlaniyiOdeleye/infrastructure.git
     targetRevision: HEAD
-    path: gitops/dev/argocd
+    path: gitops/dev/storage/rook-ceph-operator
+    helm:
+      valueFiles: 
+      - values.yaml
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: rook-ceph
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=false

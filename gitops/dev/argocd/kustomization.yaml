@@ -1,3 +1,7 @@
 resources:
   - rabbitmq.yaml
+  - rook-ceph-operator.yaml
+  - rook-ceph-cluster.yaml
+  - rook-ceph-pool-sc.yaml
+
 
