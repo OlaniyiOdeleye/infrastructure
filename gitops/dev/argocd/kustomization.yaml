@@ -2,6 +2,6 @@ resources:
   - rabbitmq.yaml
   - rook-ceph-operator.yaml
   - rook-ceph-cluster.yaml
-  - rook-ceph-pool-sc.yaml
+  - rook-ceph-storage-type.yaml
 
 
